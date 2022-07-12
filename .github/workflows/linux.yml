@@ -33,11 +33,7 @@ jobs:
       matrix:
         image:
           # Build a bunch of different "agent" rootfs images.
-          - 'agent_linux.aarch64'
-          - 'agent_linux.armv7l'
-          - 'agent_linux.ppc64le'
           - 'agent_linux.x86_64'
-          - 'agent_linux.i686'
 
           # The `debian_minimal` image is a `debian`-based image that
           # contains no packages.
@@ -48,38 +44,13 @@ jobs:
           # that need to upload to AWS.
           - 'aws_uploader.x86_64'
 
-          # The `package_linux` images are all `debian`-based.
-          - 'package_linux.aarch64'
-          - 'package_linux.armv7l'
-          - 'package_linux.i686'
-          - 'package_linux.powerpc64le'
-          - 'package_linux.x86_64'
-
-          # The `package_musl` image is `alpine`-based.
-          - 'package_musl.x86_64'
+          # A Debian-based image used to build linux kernels and modules
+          - 'kernel_builder.x86_64'
 
           # The `rr` image is `debian`-based.
           # It is used for building rr from source and running the rr test suite.
           - 'rr.aarch64'
           - 'rr.x86_64'
-
-          # The `tester_linux` images are all `debian`-based.
-          # They do not include the compiler toolchain.
-          - 'tester_linux.aarch64'
-          - 'tester_linux.armv7l'
-          - 'tester_linux.i686'
-          - 'tester_linux.powerpc64le'
-          - 'tester_linux.x86_64'
-
-          # The `tester_musl` image is `alpine`-based.
-          # It does not include the compiler toolchain.
-          - 'tester_musl.x86_64'
-
-          # The `llvm_passes` image is a short-term solution for the `analyzegc` builder.
-          - 'llvm_passes.x86_64'
-
-          # The `pkgserver_logsync` image is a helper for https://github.com/JuliaPackaging/PkgServerLogAnalysis.jl
-          - 'pkgserver_logsync.x86_64'
 
           # The `npm_linux` image is a helper for ecosystem jobs that need to build NPM packages
           - 'npm_linux.x86_64'
