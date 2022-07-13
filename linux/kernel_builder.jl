@@ -27,7 +27,7 @@ packages = [
     "vim",
 ]
 
-artifact_hash, tarball_path, = debootstrap(arch, image; archive, packages)
+artifact_hash, tarball_path, = debootstrap(arch, image; archive, packages, release="bullseye")
 
 upload_gha(tarball_path)
 test_sandbox(artifact_hash)
