@@ -69,6 +69,13 @@ function cleanup_rootfs(rootfs; rootfs_info=nothing)
         rm(joinpath(rootfs, "usr", "share", "doc"); recursive=true, force=true)
     end
 
+    # Delete the contents of `/tmp`
+    if isdir(joinpath(rootfs, "tmp"))
+        @info("Removing `/tmp`...")
+        rm(joinpath(rootfs, "tmp"); recursive=true, force=true)
+        mkpath(joinpath(rootfs, "tmp"))
+    end
+
     # Add `juliaci` user and group
     @info("Adding 'juliaci' user and group as 1000:1000")
     open(joinpath(rootfs, "etc", "passwd"), append=true) do io

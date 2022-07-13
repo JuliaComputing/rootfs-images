@@ -135,6 +135,7 @@ function debootstrap(f::Function, arch::String, name::String;
         end
 
         # Run `apt clean`
+        @info("Running `apt clean`")
         chroot(rootfs, "apt", "clean"; ENV=chroot_ENV)
     end
 end

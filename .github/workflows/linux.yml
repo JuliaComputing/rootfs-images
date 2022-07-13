@@ -47,6 +47,11 @@ jobs:
           # A Debian-based image used to build linux kernels and modules
           - 'kernel_builder.x86_64'
 
+          # A Debian-based image used to build litex designs and firmware
+          # Because this requires the vivado toolchain (and it's huge) we won't
+          # actually build it on GHA
+          #- 'litex_builder.x86_64'
+
           # The `rr` image is `debian`-based.
           # It is used for building rr from source and running the rr test suite.
           - 'rr.aarch64'
