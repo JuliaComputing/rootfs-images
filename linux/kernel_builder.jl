@@ -8,6 +8,7 @@ archive      = args.archive
 image        = args.image
 
 packages = [
+    "automake",
     "bash",
     "bc",
     "build-essential",
@@ -17,12 +18,14 @@ packages = [
     "flex",
     "git",
     "less",
+    "libglib2.0-dev",
     "libelf-dev",
     "libssl-dev",
+    "libtool",
+    "libudev-dev",
     "locales",
     "localepurge",
     "rsync",
-    "python",
     "python3",
     "vim",
 ]
